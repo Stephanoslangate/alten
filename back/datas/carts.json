@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1",
+    "items": [
+      {
+        "productId": 3,
+        "quantity": 5
+      },
+      {
+        "productId": 5,
+        "quantity": 5
+      }
+    ],
+    "createdAt": 1746415477000,
+    "updatedAt": 1746453763518
+  }
+]

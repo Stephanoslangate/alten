@@ -1,0 +1,13 @@
+@import "variables";
+.app-content {
+    overflow: hidden;
+    height: 100%;
+}
+.p-toolbar-group-end{
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.lout a{
+    color: var(--primary-font-color);
+}

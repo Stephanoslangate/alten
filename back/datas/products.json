@@ -1,0 +1,50 @@
+[
+  {
+    "id": 3,
+    "code": "P005",
+    "name": "PArfum",
+    "description": "exemple",
+    "image": "headphones.jpg",
+    "category": "Cosmetique",
+    "price": 599.99,
+    "quantity": 5,
+    "internalReference": "ELEC-WH-09",
+    "shellId": 1010,
+    "inventoryStatus": "LOWSTOCK",
+    "rating": 5,
+    "createdAt": 1746415165090,
+    "updatedAt": 1746415165090
+  },
+  {
+    "id": 4,
+    "code": "",
+    "name": "Barra lateral",
+    "description": "Une barre pour la musculation",
+    "image": "",
+    "category": "Fitness",
+    "price": 800,
+    "quantity": 0,
+    "internalReference": "",
+    "shellId": 0,
+    "inventoryStatus": "INSTOCK",
+    "rating": 0,
+    "createdAt": 1746417197441,
+    "updatedAt": 1746417197441
+  },
+  {
+    "id": 5,
+    "code": "",
+    "name": "new prod",
+    "description": "exemple",
+    "image": "",
+    "category": "Clothing",
+    "price": 300,
+    "quantity": 19,
+    "internalReference": "",
+    "shellId": 0,
+    "inventoryStatus": "INSTOCK",
+    "rating": 0,
+    "createdAt": 1746420686138,
+    "updatedAt": 1746420686138
+  }
+]
