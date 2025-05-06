@@ -6,13 +6,15 @@ import { Cart } from "./cart.model";
 @Injectable({
     providedIn: "root"
 }) export class CartsService {
-    private readonly userId = 1;
+
+    private readonly userId = localStorage.getItem('userId') ?? '0';
     private readonly http = inject(HttpClient);
     private readonly path = `http://localhost:3000/api/carts/${this.userId}`;
     
     private readonly _carts = signal<Cart[]>([]);
     public readonly carts = this._carts.asReadonly();
 
+    
     public get(): Observable<Cart[]> {
         return this.http.get<Cart[]>(this.path).pipe(
             catchError((error) => {

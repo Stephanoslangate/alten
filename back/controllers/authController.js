@@ -12,7 +12,6 @@ const generateToken = (id) => {
   });
 };
 
-// Register user
 exports.account = async (req, res, next) => {
   const { username,firstname, email, password } = req.body;
 
@@ -53,7 +52,6 @@ exports.account = async (req, res, next) => {
   }
 };
 
-// Login user
 exports.token = async (req, res, next) => {
   const { email, password } = req.body;
 

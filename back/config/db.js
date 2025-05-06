@@ -36,11 +36,12 @@ class JSONStorage {
 
   findById(id) {
     const items = this.read();
-    return items.find(item => item.id === id);
+    return items.find(item => String(item.id) === String(id));
   }
 
   findBy(key, value) {
     const items = this.read();
+    
     return items.find(item => item[key] === value);
   }
 
@@ -57,21 +58,16 @@ class JSONStorage {
 
   update(id, updates) {
     const items = this.read();
-    const index = items.findIndex(item => item.id === id);
+    const index = items.findIndex(item => String(item.id) === String(id));
     if (index !== -1) {
-     /*  items[index] = { ...items[index], ...updates };
-      this.write(items);
-      return items[index]; */
 
       items[index] = { ...items[index], ...updates, updatedAt: Date.now() };
       
-      // Écriture synchrone pour s'assurer de la persistance
       fs.writeFileSync(this.filePath, JSON.stringify(items, null, 2), 'utf8');
       
-      // Vérification que le fichier a bien été mis à jour
       const updatedData = fs.readFileSync(this.filePath, 'utf8');
       const parsedData = JSON.parse(updatedData);
-      const updatedItem = parsedData.find(item => item.id === id);
+      const updatedItem = parsedData.find(item => String(item.id) === String(id));
       
       if (!updatedItem) {
         throw new Error('Failed to persist changes');
@@ -84,7 +80,7 @@ class JSONStorage {
 
   delete(id) {
     const items = this.read();
-    const filteredItems = items.filter(item => item.id !== id);
+    const filteredItems = items.filter(item => String(item.id) !== String(id));
     this.write(filteredItems);
     return filteredItems.length !== items.length;
   }

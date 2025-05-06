@@ -43,7 +43,6 @@ const emptyProduct: Product = {
 export class ProductListComponent implements OnInit {
   private readonly productsService = inject(ProductsService);
   private readonly cartsService = inject(CartsService);
-
   public readonly products = this.productsService.products;
   public readonly carts = this.cartsService.carts;
  
@@ -53,15 +52,22 @@ export class ProductListComponent implements OnInit {
   public readonly editedCart = signal<Cart>(emptyCart);
   public readonly editedProduct = signal<Product>(emptyProduct);
 
+  userEmail = "";
+
   ngOnInit() {
     this.productsService.get().subscribe();
     this.cartsService.get().subscribe();
+    this.userEmail = localStorage.getItem('userEmail') ?? '0';
   }
 
   public onCreate() {
     this.isCreation = true;
     this.isDialogVisible = true;
-    this.editedProduct.set(emptyProduct);
+    if(this.products().length>=1)
+    emptyProduct.id = this.products()[this.products().length-1].id+1
+    
+    this.editedProduct.set({ ...emptyProduct });
+
   }
 
   public onUpdate(product: Product) {
@@ -90,14 +96,8 @@ export class ProductListComponent implements OnInit {
     this.closeDialog();
   }
   public onSave2(cart: Cart) {
-    console.log("cart")
-    console.log(cart)
     this.cartsService.create(cart).subscribe();
-
-    if (this.isCreation) {
-    } else {
-     // this.productsService.update(product).subscribe();
-    }
+    this.productsService.get().subscribe();
     this.closeDialog();
   }
 

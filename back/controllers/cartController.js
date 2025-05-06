@@ -1,4 +1,6 @@
 const Cart = require('../models/Cart');
+const Product = require('../models/Product');
+
 const { cartsStorage, productsStorage } = require('../config/db');
 
 exports.getOrCreateCart = (req, res) => {
@@ -49,6 +51,11 @@ exports.addToCart = (req, res) => {
     const Macart = Cart.from(cart);
     Macart.addItem(productId, quantity);
     cartsStorage.update(req.params.userId, Macart);
+     
+    product.quantity = product.quantity - quantity
+    const updatedProduct = new Product(product).update(product);
+    productsStorage.update(productId, updatedProduct);
+     
     
     res.json(cart);
   } catch (error) {
@@ -68,6 +75,7 @@ exports.removeFromCart = (req, res) => {
     Macart.removeItem(req.params.productId);
     cartsStorage.update(req.params.userId, Macart);
     
+
     res.json(Macart);
   } catch (error) {
     res.status(500).json({ message: error.message });

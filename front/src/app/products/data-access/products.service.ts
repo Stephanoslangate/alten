@@ -17,7 +17,7 @@ import { catchError, Observable, of, tap } from "rxjs";
     public get(): Observable<Product[]> {
         return this.http.get<Product[]>(this.path).pipe(
             catchError((error) => {
-                return this.http.get<Product[]>("assets/products.json");
+                return this.http.get<Product[]>("assets/productss.json");
             }),
             tap((products) => this._products.set(products)),
         );
@@ -33,7 +33,7 @@ import { catchError, Observable, of, tap } from "rxjs";
     }
 
     public update(product: Product): Observable<boolean> {
-        return this.http.patch<boolean>(`${this.path}/${product.id}`, product).pipe(
+        return this.http.put<boolean>(`${this.path}/${product.id}`, product).pipe(
             catchError(() => {
                 return of(true);
             }),

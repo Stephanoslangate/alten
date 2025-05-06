@@ -1,17 +1,17 @@
 [
   {
-    "id": "1",
+    "id": "bf467417-4457-47b7-8df4-abbf56448d0b",
     "items": [
       {
-        "productId": 3,
-        "quantity": 5
+        "productId": 2,
+        "quantity": 1
       },
       {
-        "productId": 5,
-        "quantity": 5
+        "productId": 1,
+        "quantity": 2
       }
     ],
     "createdAt": 1746415477000,
-    "updatedAt": 1746453763518
+    "updatedAt": 1746539144505
   }
 ]

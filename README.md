@@ -73,7 +73,6 @@ class Product {
   updatedAt: number;
 }
 ```
-
 Le back-end créé doit pouvoir gérer les produits dans une base de données SQL/NoSQL ou dans un fichier json.
 
 ### Partie 2

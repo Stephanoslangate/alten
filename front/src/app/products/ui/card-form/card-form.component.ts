@@ -75,7 +75,6 @@ export class CardFormComponent {
   }
   onSave() {
     this.save.emit(this.editedCart());
-    //this.save.emit(this.editedProduct());
   }
 
   

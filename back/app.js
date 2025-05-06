@@ -11,8 +11,13 @@ dotenv.config();
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors());
-
+// Configuration CORS
+app.use(cors({
+  origin: 'http://localhost:4200',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 // Les Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);

@@ -18,7 +18,8 @@ class Cart {
     }
   
     removeItem(productId) {
-      this.items = this.items.filter(item => item.productId !== productId);
+      
+      this.items = this.items.filter(item => String(item.productId) !== String(productId));
       this.updatedAt = Date.now();
       return this;
     }

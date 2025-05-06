@@ -37,8 +37,9 @@ exports.updateProduct = (req, res) => {
   try {
     const product = productsStorage.findById(req.params.id);
     if (!product) {
-      return res.status(404).json({ message: 'Product not found' });
+      return res.status(404).json({ message: `Product not found ID: ${req.params.id}` });
     }
+
 
     const updatedProduct = new Product(product).update(req.body);
     productsStorage.update(req.params.id, updatedProduct);

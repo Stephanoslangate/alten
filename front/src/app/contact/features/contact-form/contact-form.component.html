@@ -1,0 +1,41 @@
+<h1 class="text-center">Votre demande</h1>
+
+<p-dataView #dv >
+    <ng-template pTemplate="list" let-products>
+            <p-card class="block mb-2">
+                <div class="text-lg font-medium text-900 mt-2">Page de contact</div>
+
+                <form #form="ngForm" [formGroup]="formContact" (ngSubmit)="onSave()">
+   
+
+                    <div class="form-field">
+                      <label for="quantity">Email</label>
+                      <input pInputText
+                      formControlName="email"
+                      type="text"
+                      required>
+                       
+                    </div>
+                     <div class="form-field">
+                      <label for="quantity">Message</label>
+                      <textarea 
+                        formControlName="message" 
+                        maxlength="300"
+                        required 
+                        rows="3" 
+                        style="width: 20%; resize: vertical;"></textarea>
+
+                        <p>{{ (formContact.get('message')?.value || '').length || 0 }} / 300 caractères</p>
+                      
+                    </div>
+                     
+                  
+                    <div class="flex justify-content-between">
+                      <p-button type="submit" class="bt" [disabled]="!form.valid" label="Envoyer" severity="primary"/>
+                    </div>
+                  </form>
+            </p-card>
+        
+    </ng-template>
+</p-dataView>
+<p-toast></p-toast>

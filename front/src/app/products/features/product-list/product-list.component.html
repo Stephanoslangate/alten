@@ -1,18 +1,28 @@
-<h1 class="text-center">Liste des produits</h1>
-
-<p-button label="Créer produit" (onClick)="onCreate()" class="block text-center"/>
-
-<p-dataView #dv [value]="products()">
+<h1 class="text-center">Liste des produits {{userEmail}}</h1>
+@if(userEmail === "admin@admin.com")
+{
+    <p-button label="Créer produit" (onClick)="onCreate()" class="block text-center"/>
+}
+<p-dataView #dv [value]="products()"
+[value]="products()" 
+[paginator]="true" 
+[rows]="5" 
+[rowsPerPageOptions]="[5, 10, 20]"
+>
     <ng-template pTemplate="list" let-products>
         @for (product of products; track product) {
             <p-card class="block mb-2">
                 <span class="font-medium text-secondary text-sm">{{ product.category }}</span>
                 <div class="text-lg font-medium text-900 mt-2">{{ product.name }}  - <span class="qt">{{ product.quantity }}</span>en stock</div>
+                <div class="text-lg font-medium text-900 mt-2">PRIX : <span class="qt">{{ product.price }}</span></div>
 
                 <ng-template pTemplate="footer">
                     <div class="flex gap-3 mt-1">
-                        <p-button label="Modifier" severity="secondary" (onClick)="onUpdate(product)"/>
-                        <p-button label="Supprimer" severity="danger" (onClick)="onDelete(product)" />
+                        @if(userEmail === "admin@admin.com"){
+                            <p-button label="Modifier" severity="secondary" (onClick)="onUpdate(product)"/>
+                            <p-button label="Supprimer" severity="danger" (onClick)="onDelete(product)" />
+                        
+                        }
                         <p-button label="Ajouter" icon="pi pi-shopping-cart" (onClick)="toCard(product.id,product.quantity)" />
                     </div>
                 </ng-template>

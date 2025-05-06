@@ -36,6 +36,11 @@ class Product {
       this.updatedAt = Date.now();
       return this;
     }
-  }
-  
-  module.exports = Product;
+    static from(obj) {
+      const prod = new Product();
+      Object.assign(prod, obj);
+      return prod;
+    }
+}
+
+module.exports = Product;

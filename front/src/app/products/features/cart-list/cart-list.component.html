@@ -1,13 +1,19 @@
-<h1 class="text-center">Liste des produits</h1>
+<div class="head">
+    <button type="button" pButton icon="pi pi-shopping-cart" class="p-button-rounded p-button-text f-droit" >
+        <span class="p-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+      </button>
+      
+</div>
+<h1 class="text-center">Produits du panier</h1>
 
-<p-button label="Créer produit"  class="block text-center"/>
 
-<p-dataView #dv [value]="prods">
+<p-dataView #dv [value]="prods$">
     <ng-template pTemplate="list" let-products>
-        @for (product of prods; track product.productId) {
+        @for (product of prods$; track product.productId) {
             <p-card class="block mb-2">
                 <span class="font-medium text-secondary text-sm">{{ product.product.category }}</span>
                 <div class="text-lg font-medium text-900 mt-2">{{ product.product.name }}  - <span class="qt">{{ product.quantity }}</span></div>
+                <div class="text-lg font-medium text-900 mt-2">PRIX : <span class="qt">{{ product.product.price }}</span></div>
 
                 <ng-template pTemplate="footer">
                     <div class="flex gap-3 mt-1">

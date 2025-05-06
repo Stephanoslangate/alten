@@ -8,8 +8,14 @@
     padding: 3px 10px;
     color: white;
     margin-right: 10px;
-    border-radius: 5px;
 }
-.qt-r{
-    background-color: red;
+.head{
+    display: flex;
+    justify-content: center;
+}
+.f-droit{
+    width: 20%;
+}
+.f-droit span{
+    font-size: 40px;
 }
