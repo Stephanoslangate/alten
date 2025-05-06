@@ -1,9 +1,10 @@
 <div class="containers">
+    <h6 class="mb-0 pb-3" style="padding-top: 15px;text-align: center;margin-bottom: -15px;"><span>Connexion</span><span>Inscription</span></h6>
+
     <div class="row full-height justify-content-center">
         <div class="col-12 text-center align-self-center py-5">
             <div class="section pb-5 pt-5 pt-sm-2 text-center">
     <!-- style="color:#2a2b38" -->
-                <h6 class="mb-0 pb-3" ><span>Client</span><span>Restaurant</span></h6>
                 <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
                 <label for="reg-log"></label>
         
@@ -17,7 +18,7 @@
 <div class="box">
     <span class="borderLine"></span>
     <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-        <h2>Client</h2>
+        <h2>Connexion</h2>
         <div class="inputBox">
             <input type="text" required="required" formControlName="email">
             <span>Login</span>
@@ -46,23 +47,29 @@
 
                             <div class="box">
                                     <span class="borderLine"></span>
-                                    <form >
-                                        <h2>Restaurant</h2>
+                                    <form [formGroup]="formUser" (ngSubmit)="onSubmit2()">
+                                        <h2>Inscription</h2>
                                         <div class="inputBox">
-                                            <input type="text" required="required">
+                                            <input type="text" formControlName="username" required="required">
                                             <span>Username</span>
                                             <i></i>
                                         </div>
                                         <div class="inputBox">
-                                            <input type="password" required="required">
+                                            <input type="text" formControlName="firstname" required="required">
+                                            <span>Firstname</span>
+                                            <i></i>
+                                        </div>
+                                        <div class="inputBox">
+                                            <input type="email" formControlName="email" required="required">
+                                            <span>email</span>
+                                            <i></i>
+                                        </div>
+                                        <div class="inputBox">
+                                            <input type="password" formControlName="password" required="required">
                                             <span>Password</span>
                                             <i></i>
                                         </div>
-                                        <div class="links">
-                                            <a href="#"> Forgot Password</a>
-                                            <a href="#"> Signup</a>
-                                        </div>
-                                        <button (click)="onSubmit()" >Se connecter</button>
+                                        <input type="submit" value="Enregistrer"  name="" id="">
                                     </form>
                                 </div>
                         </div>

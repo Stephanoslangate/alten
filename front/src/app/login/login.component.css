@@ -35,9 +35,7 @@
     width: 100%;
     display: block;
   }
-  .full-height{
-    min-height: 100vh;
-  }
+  
   [type="checkbox"]:checked,
   [type="checkbox"]:not(:checked){
     position: absolute;
@@ -84,11 +82,10 @@
     position: relative;
     width: 440px;
     max-width: 100%;
-    height: 400px;
+    height: 320px;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     perspective: 800px;
-    margin-top: 60px;
   }
   .card-3d-wrapper {
     width: 100%;

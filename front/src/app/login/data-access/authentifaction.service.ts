@@ -17,6 +17,13 @@ export class AuthentifactionService {
 
   constructor(private router: Router) { }
 
+  public register(credentials:any): Observable<boolean> {
+      return this.http.post<any>(this.url+"/account", credentials).pipe(
+              catchError(() => {
+                  return of(true);
+              })
+          );
+      }
   login(credentials:any): Observable<boolean> {
  
     return this.http.post<any>(this.url+"/token", credentials)
@@ -33,6 +40,7 @@ export class AuthentifactionService {
         })
       );
   }
+
   deconnexion(){
     localStorage.removeItem('token');
     localStorage.removeItem('userId');

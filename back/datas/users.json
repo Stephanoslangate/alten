@@ -6,5 +6,13 @@
     "email": "admin@admin.com",
     "password": "$2b$10$v6U9Jc3xWgvaK/28WHgWXei2sG/O0ZoxvWiF.DsW2.v81CJKOXLoG",
     "createdAt": "2025-05-05T02:16:16.393Z"
+  },
+  {
+    "id": "ee2a01c4-c3fe-4a9d-86c4-d62c06929037",
+    "username": "Kowo",
+    "firstname": "Tresor",
+    "email": "dfr@gmail.com",
+    "password": "$2b$10$8mgg.718bjlgwgcsH6ekd.aSv7LblizZSI.ypG8GSe.P6pv1/XI/2",
+    "createdAt": "2025-05-06T15:00:18.995Z"
   }
 ]
